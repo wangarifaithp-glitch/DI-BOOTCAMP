@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio & Video Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .media-card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 15px 0;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: #f1f1f1;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="media-card">
+        <h1>Featured Video</h1>
+        <p>This video player uses the standard HTML5 <code>&lt;video&gt;</code> element to stream MP4 media with full control support.</p>
+        <video controls poster="https://via.placeholder.com/800x450/111/fff?text=Video+Thumbnail">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="media-card">
+        <h2>Audio Player</h2>
+        <p>Listen to the track below using the embedded HTML5 audio controls.</p>
+        <audio controls>
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+</body>
+</html>

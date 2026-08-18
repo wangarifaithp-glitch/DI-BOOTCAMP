@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesh  — Premium Bakery</title>
+
+  <!-- Google Fonts & Materialize Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Materialize CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <style>
+    /* ==========================================
+       1. GLOBAL STYLES & COLOR PALETTE
+       ========================================== */
+    :root {
+      --primary-pink: #f8bbd0;       /* Blush pink */
+      --secondary-pink: #f48fb1;     /* Soft pastel pink */
+      --dark-pink: #e91e63;          /* Darker accent pink */
+      --cream-bg: #fffbf7;           /* Off-white / cream background */
+      --gold-accent: #d4af37;        /* Subtle gold */
+      --text-dark: #4a4a4a;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--cream-bg);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .section-title {
+      font-size: 3.5rem;
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    /* ==========================================
+       2. NAVIGATION
+       ========================================== */
+    .nav-wrapper {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-wrapper ul li a {
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-wrapper ul li a:hover {
+      color: var(--dark-pink);
+      background-color: transparent;
+    }
+
+    .brand-logo-center {
+      font-size: 2.2rem !important;
+      color: var(--dark-pink) !important;
+      font-weight: bold;
+    }
+
+    /* ==========================================
+       3. HERO SECTION WITH OVERLAY
+       ========================================== */
+    .hero {
+      position: relative;
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(248, 187, 208, 0.45); /* Pink semi-transparent overlay */
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px 20px;
+      border-radius: 15px;
+      color: var(--text-dark);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+      color: var(--dark-pink);
+      margin: 0;
+    }
+
+    .btn-pink {
+      background-color: var(--dark-pink) !important;
+      color: #fff !important;
+      border-radius: 25px;
+      padding: 0 30px;
+      font-weight: 600;
+    }
+
+    .btn-pink:hover {
+      background-color: #c2185b !important;
+    }
+
+    .btn-gold {
+      background-color: var(--gold-accent) !important;
+      color: #fff !important;
+      border-radius: 25px;
+      padding: 0 30px;
+      font-weight: 600;
+    }
+
+    /* ==========================================
+       4. PRODUCT CARDS & FILTERS
+       ========================================== */
+    .filter-btn {
+      margin: 5px;
+      border-radius: 20px;
+      border: 1px solid var(--secondary-pink);
+      background: white;
+      color: var(--dark-pink);
+      cursor: pointer;
+      padding: 8px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
+    .card {
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .card-title-custom {
+      font-weight: 600;
+      color: var(--dark-pink);
+      font-size: 1.2rem;
+    }
+
+    /* ==========================================
+       5. SWEET PICK HIGHLIGHT
+       ========================================== */
+    .sweet-pick-box {
+      background: #ffffff;
+      border: 2px dashed var(--secondary-pink);
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .badge-special {
+      position: absolute;
+      top: -15px;
+      left: 30px;
+      background: var(--gold-accent);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* ==========================================
+       6. WHATSAPP & FLOATING BUTTONS
+       ========================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      color: white;
+    }
+
+    /* ==========================================
+       7. PROMO & TIMER
+       ========================================== */
+    .promo-banner {
+      background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+      color: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .timer-box {
+      display: inline-block;
+      background: rgba(255,255,255,0.3);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    /* Footer */
+    footer.page-footer {
+      background-color: #fce4ec;
+      color: var(--text-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       2. CENTERED NAVIGATION BAR
+       ========================================== -->
+  <div class="navbar-fixed">
+    <nav class="nav-wrapper">
+      <div class="container">
+        <a href="#home" class="brand-logo center brand-logo-center">pesh faith</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger style-dark"><i class="material-icons black-text">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#custom-cake">Custom Cakes</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#order">Order Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Sidenav -->
+  <ul class="sidenav" id="mobile-nav">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#custom-cake">Custom Cakes</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#order">Order Now</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <!-- ==========================================
+       3. HERO / LANDING SECTION
+       ========================================== -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Pesh-Faith Delights</h1>
+      <h5>"Baked With Love, Made To Delight."</h5>
+      <p>Freshly baked goodness, beautiful creations, and sweet moments made especially for you.</p>
+      <div style="margin-top: 25px;">
+        <a href="#products" class="btn btn-pink waves-effect waves-light"><i class="material-icons left">cake</i> Explore Treats</a>
+        <a href="#order" class="btn btn-gold waves-effect waves-light"><i class="material-icons left">shopping_cart</i> Order Now</a>
+      </div>
+      <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Scroll to discover sweetness ↓</p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       14. SPECIAL PROMOTION BANNER
+       ========================================== -->
+  <div class="container" style="margin-top: 40px;">
+    <div class="promo-banner">
+      <h3>🎉 SWEET DEAL OF THE WEEK</h3>
+      <p>Get a 15% discount on all custom cupcakes and birthday pastry boxes!</p>
+      <div class="timer-box" id="countdown">Offer Ends Soon!</div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       5. TODAY'S SWEET PICK
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="sweet-pick-box">
+        <span class="badge-special">✨ TODAY'S SPECIAL</span>
+        <div class="row style-margin-0" style="margin-bottom:0;">
+          <div class="col s12 m5">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Special Cake" class="responsive-img style-rounded" style="border-radius:12px;">
+          </div>
+          <div class="col s12 m7" style="padding-left: 20px;">
+            <h4 class="brand-font" style="color:var(--dark-pink); font-size: 3rem; margin-top:10px;">Signature Strawberry Velvet Cake</h4>
+            <p>Moist red velvet sponge layers infused with fresh strawberry compote and light cream cheese frosting.</p>
+            <h5 style="color:var(--gold-accent); font-weight:bold;">$35.00</h5>
+            <a href="#order" class="btn btn-pink waves-effect waves-light" style="margin-top:15px;">Order This Treat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. PRODUCTS SECTION
+       ========================================== -->
+  <section id="products" class="section">
+    <div class="container">
+      <div class="center-align">
+        <h2 class="section-title">Our Sweet Menu</h2>
+        <p>Handcrafted delicacies made daily with organic ingredients</p>
+
+        <!-- Category Filters -->
+        <div style="margin: 20px 0;">
+          <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+          <button class="filter-btn" onclick="filterCategory('cakes')">Cakes</button>
+          <button class="filter-btn" onclick="filterCategory('cupcakes')">Cupcakes</button>
+          <button class="filter-btn" onclick="filterCategory('pastries')">Pastries</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col s12 m6 l4 product-card cakes">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=500&q=80">
+            </div>
+            <div class="card-content">
+              <span class="card-title-custom">Classic Chocolate Drip Cake</span>
+              <p>Rich Belgian chocolate layers with ganache drip.</p>
+              <p class="bold" style="margin-top:10px; font-weight:bold;">$40.00</p>
+            </div>
+            <div class="card-action">
+              <a href="#order" class="btn btn-pink btn-small waves-effect">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col s12 m6 l4 product-card cupcakes">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80">
+            </div>
+            <div class="card-content">
+              <span class="card-title-custom">Rose Vanilla Cupcakes (Set)</span>
+              <p>Soft vanilla cupcakes crowned with rose buttercream.</p>
+              <p class="bold" style="margin-top:10px; font-weight:bold;">$18.00</p>
+            </div>
+            <div class="card-action">
+              <a href="#order" class="btn btn-pink btn-small waves-effect">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col s12 m6 l4 product-card pastries">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80">
+            </div>
+            <div class="card-content">
+              <span class="card-title-custom">Butter Croissants & Pastries</span>
+              <p>Flaky, golden, buttery croissants baked daily.</p>
+              <p class="bold" style="margin-top:10px; font-weight:bold;">$12.00</p>
+            </div>
+            <div class="card-action">
+              <a href="#order" class="btn btn-pink btn-small waves-effect">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. CUSTOM CAKE DESIGNER
+       ========================================== -->
+  <section id="custom-cake" class="section" style="background-color: #fce4ec;">
+    <div class="container">
+      <div class="center-align">
+        <h2 class="section-title">Custom Cake Request</h2>
+        <p>"Tell us your dream cake and we'll help bring it to life."</p>
+      </div>
+      <div class="card" style="padding: 20px; border-radius: 15px;">
+        <form id="customCakeForm">
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <input id="custom_name" type="text" class="validate" required>
+              <label for="custom_name">Your Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input id="custom_phone" type="tel" class="validate" required>
+              <label for="custom_phone">Phone Number</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <select id="custom_flavor">
+                <option value="" disabled selected>Choose Cake Flavor</option>
+                <option value="Vanilla Bean">Vanilla Bean</option>
+                <option value="Chocolate Fudge">Chocolate Fudge</option>
+                <option value="Red Velvet">Red Velvet</option>
+                <option value="Strawberry Shortcake">Strawberry Shortcake</option>
+              </select>
+              <label>Cake Flavor</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input id="custom_date" type="text" class="datepicker">
+              <label for="custom_date">Preferred Pickup/Delivery Date</label>
+            </div>
+            <div class="input-field col s12">
+              <textarea id="custom_instructions" class="materialize-textarea"></textarea>
+              <label for="custom_instructions">Design Ideas / Theme Instructions</label>
+            </div>
+            <div class="col s12 center-align">
+              <button class="btn btn-pink waves-effect waves-light" type="button" onclick="submitCustomCake()">
+                🎂 Request Custom Cake
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. ONLINE ORDERING FEATURE
+       ========================================== -->
+  <section id="order" class="section">
+    <div class="container">
+      <div class="center-align">
+        <h2 class="section-title">Place Your Order</h2>
+        <p>Calculate your total and send your order straight to WhatsApp!</p>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m7">
+          <form id="orderForm">
+            <div class="input-field col s12">
+              <select id="order_item" onchange="calculateTotal()">
+                <option value="0" disabled selected>Select Product</option>
+                <option value="35">Strawberry Velvet Cake ($35)</option>
+                <option value="40">Chocolate Drip Cake ($40)</option>
+                <option value="18">Rose Vanilla Cupcakes ($18)</option>
+                <option value="12">Butter Croissants ($12)</option>
+              </select>
+              <label>Select Item</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input id="order_quantity" type="number" min="1" value="1" onchange="calculateTotal()" onkeyup="calculateTotal()">
+              <label class="active" for="order_quantity">Quantity</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <input id="customer_name" type="text" placeholder="Your Name">
+              <label class="active">Customer Name</label>
+            </div>
+          </form>
+        </div>
+
+        <div class="col s12 m5">
+          <div class="card p-3" style="padding: 20px; border-radius: 15px; background: #fff8fa;">
+            <h5 style="color:var(--dark-pink);">Order Summary</h5>
+            <hr style="border:0; border-top: 1px solid #f8bbd0;">
+            <p id="summary-details">Please select a product.</p>
+            <h4 style="color:var(--dark-pink); font-weight:bold;">Total: $<span id="order-total">0.00</span></h4>
+            <button class="btn btn-gold style-width-100 waves-effect waves-light" style="width:100%; margin-top: 15px;" onclick="sendWhatsAppOrder()">
+              🛒 Place Order via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       11. ABOUT US SECTION
+       ========================================== -->
+  <section id="about" class="section" style="background-color: #fffbf7;">
+    <div class="container">
+      <div class="row valign-wrapper" style="display:flex; flex-wrap:wrap;">
+        <div class="col s12 m6">
+          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80" class="responsive-img" style="border-radius:15px;" alt="Bakery Studio">
+        </div>
+        <div class="col s12 m6">
+          <h2 class="section-title">About Pesh-Faith Delights</h2>
+          <p>Founded with a heart full of passion, Pesh-Faith Delights transforms finest ingredients into unforgettable sweet experiences. Every cake is crafted with precision, warmth, and artistic creativity.</p>
+          <div class="row center-align" style="margin-top:20px;">
+            <div class="col s4">
+              <h4 style="color:var(--dark-pink); margin:0;">100+</h4>
+              <p>Happy Clients</p>
+            </div>
+            <div class="col s4">
+              <h4 style="color:var(--dark-pink); margin:0;">50+</h4>
+              <p>Creations</p>
+            </div>
+            <div class="col s4">
+              <h4 style="color:var(--dark-pink); margin:0;">100%</h4>
+              <p>Baked with Love</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       9. CONTACT & FIND US
+       ========================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="center-align">
+        <h2 class="section-title">📍 Come Find Us</h2>
+      </div>
+      <div class="row">
+        <div class="col s12 m5">
+          <h5 style="color:var(--dark-pink);">Pesh-Faith Delights</h5>
+          <p><i class="material-icons left">place</i> 123 Bakery Avenue, Sweet Suite 4</p>
+          <p><i class="material-icons left">phone</i> +254 700 000 000</p>
+          <p><i class="material-icons left">email</i> info@peshfaithdelights.com</p>
+          <p><i class="material-icons left">schedule</i> Mon - Sat: 8:00 AM - 7:00 PM</p>
+        </div>
+        <div class="col s12 m7">
+          <form id="contactForm">
+            <div class="input-field">
+              <input id="contact_name" type="text" class="validate" required>
+              <label for="contact_name">Full Name</label>
+            </div>
+            <div class="input-field">
+              <input id="contact_email" type="email" class="validate" required>
+              <label for="contact_email">Email Address</label>
+            </div>
+            <div class="input-field">
+              <textarea id="contact_message" class="materialize-textarea" required></textarea>
+              <label for="contact_message">Your Message</label>
+            </div>
+            <button class="btn btn-pink waves-effect waves-light" type="button" onclick="sendMessage()">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. FLOATING WHATSAPP BUTTON
+       ========================================== -->
+  <a href="https://wa.me/254700000000?text=Hello%20Pesh-Faith%20Delights!%20I'd%20like%20to%20place%20an%20order." class="whatsapp-float tooltipped" data-position="left" data-tooltip="Chat & Order on WhatsApp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ==========================================
+       20. FOOTER
+       ========================================== -->
+  <footer class="page-footer">
+    <div class="container center-align" style="padding-bottom:20px;">
+      <h3 class="brand-font" style="color:var(--dark-pink); margin:0;">Pesh-Faith Delights</h3>
+      <p style="color:var(--text-dark);">"Baked With Love, Made To Delight."</p>
+      <div style="margin:15px 0;">
+        <a href="#" style="margin:0 10px; color:var(--dark-pink);"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" style="margin:0 10px; color:var(--dark-pink);"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" style="margin:0 10px; color:var(--dark-pink);"><i class="fab fa-tiktok fa-lg"></i></a>
+      </div>
+      <p style="color:#777; font-size:0.85rem;">© 2026 Pesh-Faith Delights. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPTS (JQUERY + MATERIALIZE + JS LOGIC)
+       ========================================== -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    // Initialize Materialize Components
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('select').formSelect();
+      $('.datepicker').datepicker({ format: 'yyyy-mm-dd' });
+      $('.tooltipped').tooltip();
+    });
+
+    // 18. JavaScript Interactive Features
+    
+    // Product Filtering
+    function filterCategory(category) {
+      $('.filter-btn').removeClass('active');
+      event.target.classList.add('active');
+
+      if (category === 'all') {
+        $('.product-card').show();
+      } else {
+        $('.product-card').hide();
+        $('.' + category).fadeIn();
+      }
+    }
+
+    // Order Total Calculation
+    function calculateTotal() {
+      var price = parseFloat($('#order_item').val()) || 0;
+      var quantity = parseInt($('#order_quantity').val()) || 1;
+      var total = price * quantity;
+      
+      var selectedText = $("#order_item option:selected").text();
+      
+      if(price > 0) {
+        $('#summary-details').text(quantity + 'x ' + selectedText);
+      } else {
+        $('#summary-details').text('Please select a product.');
+      }
+
+      $('#order-total').text(total.toFixed(2));
+    }
+
+    // Generate WhatsApp Order
+    function sendWhatsAppOrder() {
+      var name = $('#customer_name').val();
+      var total = $('#order-total').text();
+      var details = $('#summary-details').text();
+
+      if(total === '0.00' || !name) {
+        M.toast({html: 'Please fill in your name and select a product!', classes: 'rounded red'});
+        return;
+      }
+
+      var phone = "254700000000"; // Replace with real WhatsApp number
+      var message = "Hello Pesh-Faith Delights! I would like to place an order:%0A" +
+                    "- Name: " + encodeURIComponent(name) + "%0A" +
+                    "- Order: " + encodeURIComponent(details) + "%0A" +
+                    "- Total Amount: $" + total;
+
+      window.open('https://wa.me/' + phone + '?text=' + message, '_blank');
+    }
+
+    // Custom Cake Request Handler
+    function submitCustomCake() {
+      var name = $('#custom_name').val();
+      if(name) {
+        M.toast({html: 'Thank you ' + name + '! Your custom cake request has been submitted.', classes: 'rounded pink'});
+        $('#customCakeForm')[0].reset();
+      } else {
+        M.toast({html: 'Please complete the form fields.', classes: 'rounded red'});
+      }
+    }
+
+    // Contact Form Handler
+    function sendMessage() {
+      var name = $('#contact_name').val();
+      if(name) {
+        M.toast({html: 'Thank you ' + name + ', we will get back to you shortly!', classes: 'rounded pink'});
+        $('#contactForm')[0].reset();
+      } else {
+        M.toast({html: 'Please enter your details.', classes: 'rounded red'});
+      }
+    }
+  </script>
+</body>
+</html>
