@@ -1,0 +1,127 @@
+import random
+
+
+def exercise_1():
+	first_list = [1, 2, 3]
+	second_list = [4, 5, 6]
+	combined_list = list(first_list)
+	combined_list.extend(second_list)
+	print("Exercise 1:", combined_list)
+
+
+def exercise_2():
+	print("Exercise 2:")
+	for number in range(1500, 2501):
+		if number % 5 == 0 and number % 7 == 0:
+			print(number)
+
+
+def exercise_3():
+	names = ['Samus', 'Cortana', 'V', 'Link', 'Mario', 'Cortana', 'Samus']
+	name = input("Enter a name: ")
+
+	if name in names:
+		print("First index:", names.index(name))
+	else:
+		print(f"{name} is not in the names list.")
+
+
+def exercise_4():
+	numbers = []
+	for position in range(1, 4):
+		while True:
+			try:
+				numbers.append(float(input(f"Input the {position}st number: ")))
+				break
+			except ValueError:
+				print("Please enter a number.")
+
+	greatest = max(numbers)
+	print("The greatest number is:", greatest)
+
+
+def exercise_5():
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	vowels = "aeiou"
+	print("Exercise 5:")
+	for letter in alphabet:
+		kind = "vowel" if letter in vowels else "consonant"
+		print(f"{letter} is a {kind}.")
+
+
+def exercise_6():
+	words = []
+	for position in range(1, 8):
+		words.append(input(f"Enter word {position}: "))
+
+	letter = input("Enter a single character: ")
+	while len(letter) != 1:
+		letter = input("Please enter exactly one character: ")
+
+	for word in words:
+		if letter in word:
+			print(f"The first index of {letter!r} in {word!r} is {word.index(letter)}.")
+		else:
+			print(f"The letter {letter!r} is not in {word!r}.")
+
+
+def exercise_7():
+	numbers = list(range(1, 1_000_001))
+	print("Exercise 7:")
+	print("Minimum:", min(numbers))
+	print("Maximum:", max(numbers))
+	print("Sum:", sum(numbers))
+
+
+def exercise_8():
+	values = input("Enter comma-separated numbers: ").split(",")
+	values = [value.strip() for value in values]
+	print(values)
+	print(tuple(values))
+
+
+def exercise_9():
+	games_won = 0
+	games_lost = 0
+
+	while True:
+		choice = input("Guess a number from 1 to 9, or type q to quit: ").strip().lower()
+		if choice == "q":
+			break
+
+		try:
+			guess = int(choice)
+		except ValueError:
+			print("Please enter a whole number from 1 to 9.")
+			continue
+
+		if guess not in range(1, 10):
+			print("Your guess must be from 1 to 9.")
+			continue
+
+		answer = random.randint(1, 9)
+		if guess == answer:
+			games_won += 1
+			print("Winner!")
+		else:
+			games_lost += 1
+			print(f"Better luck next time. The number was {answer}.")
+
+	print("Games won:", games_won)
+	print("Games lost:", games_lost)
+
+
+def main():
+	exercise_1()
+	exercise_2()
+	exercise_3()
+	exercise_4()
+	exercise_5()
+	exercise_6()
+	exercise_7()
+	exercise_8()
+	exercise_9()
+
+
+if __name__ == "__main__":
+	main()
