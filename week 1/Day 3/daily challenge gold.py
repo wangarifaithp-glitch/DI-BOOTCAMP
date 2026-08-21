@@ -1,3 +1,5 @@
+
+
 def caesar_cipher(text, shift):
 	result = ""
 
@@ -24,6 +26,7 @@ elif choice != "encrypt":
 	print("Please choose either encrypt or decrypt.")
 else:
 	print(caesar_cipher(message, shift))
+
 
 if choice == "decrypt":
 	print(caesar_cipher(message, shift))
