@@ -2,7 +2,7 @@ import math
 import random
 
 
-# ==================== EXERCISE 1: GEOMETRY ====================
+# EXERCISE 1: GEOMETRY 
 
 class Circle:
     """A class to represent a circle with radius and geometric calculations."""
@@ -29,7 +29,7 @@ class Circle:
         print(f"  - Area: {self.area():.2f}")
 
 
-# ==================== EXERCISE 2: CUSTOM LIST CLASS ====================
+# EXERCISE 2: CUSTOM LIST CLASS 
 
 class MyList:
     """A custom list class with additional methods for list operations."""
@@ -54,7 +54,7 @@ class MyList:
         return [random.randint(1, 100) for _ in range(len(self.letters))]
 
 
-# ==================== EXERCISE 3: RESTAURANT MENU MANAGER ====================
+#  EXERCISE 3: RESTAURANT MENU MANAGER 
 
 class MenuManager:
     """A class to manage restaurant menu items."""
@@ -113,7 +113,7 @@ class MenuManager:
         print("="*70 + "\n")
 
 
-# ==================== TEST CODE ====================
+#  TEST CODE 
 
 if __name__ == "__main__":
     # Test Exercise 1: Circle

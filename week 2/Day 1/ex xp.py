@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-# ==================== EXERCISE 1: CATS ====================
+# EXERCISE 1: CATS 
 
 class Cat:
     """A class to represent a cat with name and age."""
@@ -20,7 +20,7 @@ def find_oldest_cat(cat1, cat2, cat3):
     return oldest_cat
 
 
-# ==================== EXERCISE 2: DOGS ====================
+# EXERCISE 2: DOGS
 
 class Dog:
     """A class to represent a dog with name and height."""
@@ -39,7 +39,7 @@ class Dog:
         print(f"{self.name} jumps {jump_height} cm high!")
 
 
-# ==================== EXERCISE 3: SONG ====================
+# EXERCISE 3: SONG 
 
 class Song:
     """A class to represent a song with lyrics."""
@@ -53,7 +53,7 @@ class Song:
             print(lyric)
 
 
-# ==================== EXERCISE 4: ZOO ====================
+# EXERCISE 4: ZOO 
 
 class Zoo:
     """A class to manage a zoo and its animals."""
@@ -112,10 +112,10 @@ class Zoo:
             print(f"{letter}: {animals_list}")
 
 
-# ==================== TEST CODE ====================
+# TEST CODE 
 
 if __name__ == "__main__":
-    # ==================== EXERCISE 1: CATS ====================
+    #  EXERCISE 1: CATS 
     print("="*70)
     print("EXERCISE 1: CATS - Find the Oldest Cat")
     print("="*70)
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     print(f"\nResult: The oldest cat is {oldest.name}, and is {oldest.age} years old.")
     
     
-    # ==================== EXERCISE 2: DOGS ====================
+    # EXERCISE 2: DOGS
     print("\n" + "="*70)
     print("EXERCISE 2: DOGS - Dog Class Methods")
     print("="*70)
@@ -163,7 +163,7 @@ if __name__ == "__main__":
     print(f"  {taller_dog.name} is taller ({taller_dog.height} cm)")
     
     
-    # ==================== EXERCISE 3: SONG ====================
+    # EXERCISE 3: SONG 
     print("\n" + "="*70)
     print("EXERCISE 3: SONG - Sing a Song")
     print("="*70)
@@ -179,7 +179,7 @@ if __name__ == "__main__":
     stairway.sing_me_a_song()
     
     
-    # ==================== EXERCISE 4: ZOO ====================
+    # EXERCISE 4: ZOO
     print("\n" + "="*70)
     print("EXERCISE 4: ZOO - Zoo Management System")
     print("="*70)
