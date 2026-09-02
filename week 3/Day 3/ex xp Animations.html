@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        p {
+            background: yellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="clear">Clear Interval</button>
+
+    <script>
+        // Part I: call a function after 2 seconds to show an alert.
+        setTimeout(() => {
+            alert('Hello World');
+        }, 2000);
+
+        // Part II: after 2 seconds, add a new paragraph to the container.
+        setTimeout(() => {
+            const container = document.getElementById('container');
+            const paragraph = document.createElement('p');
+            paragraph.textContent = 'Hello World';
+            container.appendChild(paragraph);
+        }, 2000);
+
+        // Part III: set an interval to add a paragraph every 2 seconds.
+        const container = document.getElementById('container');
+        const clearButton = document.getElementById('clear');
+        let paragraphCount = 0;
+
+        const intervalId = setInterval(() => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = 'Hello World';
+            container.appendChild(paragraph);
+            paragraphCount += 1;
+
+            // Clear the interval when the container has 5 paragraphs.
+            if (paragraphCount >= 5) {
+                clearInterval(intervalId);
+            }
+        }, 2000);
+
+        // Also clear the interval when the user clicks the button.
+        clearButton.addEventListener('click', () => {
+            clearInterval(intervalId);
+        });
+    </script>
+</body>
+</html>

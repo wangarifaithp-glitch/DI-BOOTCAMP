@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Mad Libs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: inline-block;
+        width: 140px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+      <label for="noun">Noun:</label>
+      <input type="text" id="noun"><br>
+
+      <label for="adjective">Adjective:</label>
+      <input type="text" id="adjective"><br>
+
+      <label for="person">Someone's Name:</label>
+      <input type="text" id="person"><br>
+
+      <label for="verb">Verb:</label>
+      <input type="text" id="verb"><br>
+
+      <label for="place">A place:</label>
+      <input type="text" id="place"><br>
+
+      <button id="lib-button" type="submit">Lib it!</button>
+      <button id="shuffle-button" type="button">Shuffle</button>
+    </form>
+
+    <p>Generated story:
+      <span id="story"></span>
+    </p>
+
+    <script>
+      const form = document.getElementById('libform');
+      const storyElement = document.getElementById('story');
+      const shuffleButton = document.getElementById('shuffle-button');
+
+      const storyTemplates = [
+        "Once upon a time, {person} found a {adjective} {noun} in {place} and decided to {verb} with it.",
+        "While walking through {place}, {person} saw a {adjective} {noun} and started to {verb} immediately.",
+        "At {place}, {person} discovered that the {adjective} {noun} could {verb} all by itself.",
+        "One sunny day, {person} took a {adjective} {noun} to {place} and began to {verb} for fun."
+      ];
+
+      let currentValues = {};
+
+      function getValues() {
+        return {
+          noun: document.getElementById('noun').value.trim(),
+          adjective: document.getElementById('adjective').value.trim(),
+          person: document.getElementById('person').value.trim(),
+          verb: document.getElementById('verb').value.trim(),
+          place: document.getElementById('place').value.trim()
+        };
+      }
+
+      function buildStory(values, template) {
+        return template
+          .replace('{noun}', values.noun)
+          .replace('{adjective}', values.adjective)
+          .replace('{person}', values.person)
+          .replace('{verb}', values.verb)
+          .replace('{place}', values.place);
+      }
+
+      function displayStory(values, templateIndex) {
+        storyElement.textContent = buildStory(values, storyTemplates[templateIndex]);
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const values = getValues();
+
+        for (const key in values) {
+          if (values[key] === '') {
+            alert('Please fill in all the fields before generating the story.');
+            return;
+          }
+        }
+
+        currentValues = values;
+        displayStory(values, 0);
+      });
+
+      shuffleButton.addEventListener('click', () => {
+        if (Object.keys(currentValues).length === 0) {
+          alert('Please generate a story first, then shuffle it.');
+          return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * storyTemplates.length);
+        displayStory(currentValues, randomIndex);
+      });
+    </script>
+  </body>
+</html>

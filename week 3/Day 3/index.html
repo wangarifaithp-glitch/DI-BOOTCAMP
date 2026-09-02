@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM and Forms Exercises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        article {
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            transition: font-size 0.2s ease;
+        }
+
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        form {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="exercise1">
+        <article>
+            <h1>Some Facts</h1>
+            <h2>The Chocolate</h2>
+            <h3>History of the chocolate</h3>
+            <p>Chocolate is made from tropical Theobroma cacao tree seeds. Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+            <p>After the European discovery of the Americas, chocolate became very popular in the wider world, and its demand exploded.</p>
+            <p>Chocolate has since become a popular food product that millions enjoy every day, thanks to its unique, rich, and sweet taste.</p>
+            <p>But what effect does eating chocolate have on our health?</p>
+        </article>
+
+        <button id="bold-btn">Make paragraphs bold</button>
+    </section>
+
+    <section class="exercise2">
+        <form id="userForm">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="firstname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lastname"><br><br>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+
+        <ul class="usersAnswer"></ul>
+    </section>
+
+    <section class="exercise3">
+        <p id="textParagraph">
+            <strong>Hello</strong> I hope you are enjoying <strong>this</strong> class. At the
+            <strong>end</strong> you <strong>will</strong> be great Developers!
+            <strong>Enjoy</strong> the <strong>JavaScript </strong> lessons
+        </p>
+    </section>
+
+    <section class="exercise4">
+        <p>Input radius value and get the volume of a sphere.</p>
+        <form id="MyForm">
+            <label for="radius">Radius</label>
+            <input type="text" name="radius" id="radius" required>
+            <label for="volume">Volume</label>
+            <input type="text" name="volume" id="volume">
+            <input type="submit" value="Calculate" id="submitSphere">
+        </form>
+    </section>
+
+    <script>
+        // Exercise 1: Retrieve the h1 element using a DOM property and log it to the console.
+        const h1 = document.querySelector('h1');
+        console.log(h1);
+
+        // Exercise 1: Select the article and remove its last paragraph using DOM methods.
+        const article = document.querySelector('article');
+        const lastParagraph = article.lastElementChild;
+        if (lastParagraph) {
+            article.removeChild(lastParagraph);
+        }
+
+        // Exercise 1: Add a click event listener to change the background color of h2 to red.
+        const h2 = document.querySelector('h2');
+        h2.addEventListener('click', () => {
+            h2.style.backgroundColor = 'red';
+        });
+
+        // Exercise 1: Add a click event listener to hide h3 using display: none.
+        const h3 = document.querySelector('h3');
+        h3.addEventListener('click', () => {
+            h3.style.display = 'none';
+        });
+
+        // Exercise 1: Add a button event listener to make all paragraph text bold.
+        const button = document.getElementById('bold-btn');
+        button.addEventListener('click', () => {
+            const paragraphs = article.querySelectorAll('p');
+            paragraphs.forEach((paragraph) => {
+                paragraph.style.fontWeight = 'bold';
+            });
+        });
+
+        // Exercise 1 BONUS: Change the h1 font size randomly on hover between 0 and 100 pixels.
+        h1.addEventListener('mouseover', () => {
+            const randomSize = Math.floor(Math.random() * 101);
+            h1.style.fontSize = `${randomSize}px`;
+        });
+
+        // Exercise 1 BONUS: Reset the h1 size when the mouse leaves.
+        h1.addEventListener('mouseleave', () => {
+            h1.style.fontSize = '2em';
+        });
+
+        // Exercise 1 BONUS: Add a fade-out effect when hovering over the second paragraph.
+        const secondParagraph = article.querySelectorAll('p')[1];
+        secondParagraph.addEventListener('mouseenter', () => {
+            secondParagraph.classList.add('fade-out');
+            secondParagraph.style.opacity = '0';
+        });
+
+        secondParagraph.addEventListener('mouseleave', () => {
+            secondParagraph.classList.remove('fade-out');
+            secondParagraph.style.opacity = '1';
+        });
+
+        // Exercise 2: Retrieve the form and console.log it.
+        const form = document.querySelector('form');
+        console.log(form);
+
+        // Exercise 2: Retrieve the inputs by their id and console.log them.
+        const firstNameInput = document.getElementById('fname');
+        const lastNameInput = document.getElementById('lname');
+        console.log(firstNameInput);
+        console.log(lastNameInput);
+
+        // Exercise 2: Retrieve the inputs by their name attribute and console.log them.
+        const firstNameByName = document.getElementsByName('firstname');
+        const lastNameByName = document.getElementsByName('lastname');
+        console.log(firstNameByName);
+        console.log(lastNameByName);
+
+        // Exercise 2: Prevent default form submission and handle custom behavior.
+        form.addEventListener('submit', (event) => {
+            // event.preventDefault() stops the page from reloading so we can process the form data.
+            event.preventDefault();
+
+            const firstNameValue = firstNameInput.value.trim();
+            const lastNameValue = lastNameInput.value.trim();
+
+            if (firstNameValue === '' || lastNameValue === '') {
+                alert('Please fill in both first and last name.');
+                return;
+            }
+
+            const usersAnswer = document.querySelector('.usersAnswer');
+            usersAnswer.innerHTML = '';
+
+            const firstNameItem = document.createElement('li');
+            firstNameItem.textContent = firstNameValue;
+            usersAnswer.appendChild(firstNameItem);
+
+            const lastNameItem = document.createElement('li');
+            lastNameItem.textContent = lastNameValue;
+            usersAnswer.appendChild(lastNameItem);
+        });
+
+        // Exercise 3: Declare the global variable.
+        let allBoldItems;
+
+        // Exercise 3: Create a function that collects all bold items inside the paragraph.
+        function getBoldItems() {
+            allBoldItems = document.querySelectorAll('#textParagraph strong');
+        }
+
+        // Exercise 3: Highlight all bold items in blue.
+        function highlight() {
+            getBoldItems();
+            allBoldItems.forEach((item) => {
+                item.style.color = 'blue';
+            });
+        }
+
+        // Exercise 3: Reset all bold items to black.
+        function returnItemsToDefault() {
+            getBoldItems();
+            allBoldItems.forEach((item) => {
+                item.style.color = 'black';
+            });
+        }
+
+        // Exercise 3: Trigger highlight on mouseover and restore default on mouseout.
+        const textParagraph = document.getElementById('textParagraph');
+        textParagraph.addEventListener('mouseover', highlight);
+        textParagraph.addEventListener('mouseout', returnItemsToDefault);
+
+        // Exercise 4: Calculate the volume of a sphere using the formula V = 4/3 * π * r^3.
+        const sphereForm = document.getElementById('MyForm');
+        const radiusInput = document.getElementById('radius');
+        const volumeInput = document.getElementById('volume');
+
+        sphereForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const radius = Number(radiusInput.value);
+
+            if (isNaN(radius) || radius <= 0) {
+                alert('Please enter a valid radius greater than 0.');
+                return;
+            }
+
+            const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+            volumeInput.value = volume.toFixed(2);
+        });
+    </script>
+</body>
+</html>

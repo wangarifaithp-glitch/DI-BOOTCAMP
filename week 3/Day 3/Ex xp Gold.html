@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 Gold Exercises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        select, input, button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Exercise 1: Select a kind of Music</h2>
+        <select id="genres">
+            <option value="rock">Rock</option>
+            <option value="blues" selected>Blues</option>
+        </select>
+    </section>
+
+    <section>
+        <h2>Exercise 2: Delete colors</h2>
+        <form>
+            <select id="colorSelect">
+                <option>Red</option>
+                <option>Green</option>
+                <option>White</option>
+                <option>Black</option>
+            </select>
+            <input type="button" value="Select and Remove" id="removeBtn">
+        </form>
+    </section>
+
+    <section>
+        <h2>Exercise 3: Create a shopping list</h2>
+        <div id="root"></div>
+    </section>
+
+    <script>
+        // Exercise 1
+        const genres = document.getElementById('genres');
+
+        // Display the selected option value.
+        console.log(genres.value);
+
+        // Add a new option and make it selected by default.
+        const classicOption = new Option('Classic', 'classic');
+        genres.appendChild(classicOption);
+        genres.value = 'classic';
+
+        // Exercise 2
+        function removecolor() {
+            const colorSelect = document.getElementById('colorSelect');
+            const selectedIndex = colorSelect.selectedIndex;
+
+            if (selectedIndex >= 0) {
+                colorSelect.remove(selectedIndex);
+            }
+        }
+
+        document.getElementById('removeBtn').addEventListener('click', removecolor);
+
+        // Exercise 3
+        let shoppingList = [];
+
+        const root = document.getElementById('root');
+
+        // Create the form and add it to the DOM.
+        const form = document.createElement('form');
+        form.id = 'shoppingForm';
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'itemInput';
+        input.placeholder = 'Add an item';
+
+        const addButton = document.createElement('button');
+        addButton.type = 'submit';
+        addButton.textContent = 'AddItem';
+
+        form.appendChild(input);
+        form.appendChild(addButton);
+        root.appendChild(form);
+
+        // Create the ClearAll button.
+        const clearAllButton = document.createElement('button');
+        clearAllButton.type = 'button';
+        clearAllButton.textContent = 'ClearAll';
+        root.appendChild(clearAllButton);
+
+        function addItem() {
+            const itemValue = input.value.trim();
+            if (itemValue === '') {
+                alert('Please enter an item to add.');
+                return;
+            }
+
+            shoppingList.push(itemValue);
+            input.value = '';
+            renderList();
+        }
+
+        function clearAll() {
+            shoppingList = [];
+            renderList();
+        }
+
+        function renderList() {
+            let list = document.getElementById('shoppingList');
+            if (list) {
+                list.remove();
+            }
+
+            list = document.createElement('ul');
+            list.id = 'shoppingList';
+
+            shoppingList.forEach((item) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                list.appendChild(listItem);
+            });
+
+            root.appendChild(list);
+        }
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            addItem();
+        });
+
+        clearAllButton.addEventListener('click', clearAll);
+    </script>
+</body>
+</html>

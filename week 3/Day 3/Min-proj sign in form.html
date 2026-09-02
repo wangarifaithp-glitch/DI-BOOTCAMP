@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In / Sign Up</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #efe3ff, #d8c3ff);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 900px;
+      max-width: 90vw;
+      min-height: 520px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .form-section {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.7s ease-in-out;
+    }
+
+    .sign-in {
+      left: 0;
+      z-index: 2;
+    }
+
+    .sign-up {
+      left: 50%;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .container.right-panel-active .sign-in {
+      transform: translateX(100%);
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .container.right-panel-active .sign-up {
+      transform: translateX(0);
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .panel {
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .panel h2 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    .panel input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      outline: none;
+    }
+
+    .panel button {
+      margin-top: 10px;
+      width: 100%;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 25px;
+      background: #8e44ad;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(142, 68, 173, 0.25);
+    }
+
+    .overlay-section {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, #9b59b6, #6f2dbd);
+      color: white;
+      transition: transform 0.7s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .container.right-panel-active .overlay-section {
+      transform: translateX(-100%);
+    }
+
+    .overlay-panel {
+      width: 80%;
+      text-align: center;
+    }
+
+    .overlay-panel h2 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .overlay-panel p {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .ghost {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="form-section sign-in">
+      <div class="panel">
+        <h2>Sign In</h2>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button>Sign In</button>
+      </div>
+    </div>
+
+    <div class="form-section sign-up">
+      <div class="panel">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button>Sign Up</button>
+      </div>
+    </div>
+
+    <div class="overlay-section">
+      <div class="overlay-panel">
+        <h2>Hello, Friend!</h2>
+        <p>Enter your personal details and start your journey with us.</p>
+        <button class="ghost" id="signUpBtn">Sign Up</button>
+        <br><br>
+        <h2>Welcome Back!</h2>
+        <p>To keep connected with us please login with your personal info.</p>
+        <button class="ghost" id="signInBtn">Sign In</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const signUpBtn = document.getElementById('signUpBtn');
+    const signInBtn = document.getElementById('signInBtn');
+
+    signUpBtn.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+    });
+
+    signInBtn.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+    });
+  </script>
+</body>
+</html>

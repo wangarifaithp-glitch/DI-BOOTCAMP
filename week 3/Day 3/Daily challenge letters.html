@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Challenge - Only Letters</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 25%, #b91c5c 75%, #f472b6 100%);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 420px;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 30px 25px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(76, 29, 149, 0.28);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #6d28d9;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #d8b4fe;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+      outline: none;
+      background: linear-gradient(135deg, #fdf2f8, #f5f3ff);
+    }
+
+    input:focus {
+      border-color: #a21caf;
+      box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+    }
+
+    p {
+      margin-top: 15px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Only Letters Allowed</h2>
+
+    <!-- Input field where only letters can be typed -->
+    <label for="letterInput">Type your name:</label>
+    <input id="letterInput" type="text" placeholder="Only A-Z letters" />
+
+    <p>Numbers and special characters are automatically removed.</p>
+  </div>
+
+  <script>
+    // Select the input element
+    const input = document.getElementById('letterInput');
+
+    // Listen to the input event so every change is checked
+    input.addEventListener('input', function () {
+      // Remove anything that is not a letter (A-Z or a-z)
+      this.value = this.value.replace(/[^A-Za-z]/g, '');
+    });
+  </script>
+</body>
+</html>
