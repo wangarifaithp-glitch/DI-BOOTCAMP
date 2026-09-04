@@ -8,5 +8,6 @@
         "vscode-insiders",
         ""
     ],
-    "terminal.integrated.allowInUntrustedWorkspace": true
+    "terminal.integrated.allowInUntrustedWorkspace": true,
+    "liveServer.settings.port": 5501
 }

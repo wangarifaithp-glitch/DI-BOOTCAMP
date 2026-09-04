@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A tactile browser drum machine.">
+	<title>Pulse Room | Drum Machine</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="studio-shell">
+		<header class="topbar">
+			<a class="brand" href="#" aria-label="Pulse Room home">
+				<span class="brand-mark"><span></span><span></span><span></span></span>
+				<span>Pulse Room</span>
+			</a>
+			<div class="topbar-tools">
+				<div class="theme-switcher" role="group" aria-label="Choose a visual theme">
+					<button class="theme-button active" data-theme="ocean" type="button">Ocean</button>
+					<button class="theme-button" data-theme="crystal" type="button">Crystal</button>
+				</div>
+				<div class="status"><span class="status-dot"></span><span id="statusText">Ready to play</span></div>
+			</div>
+		</header>
+
+		<section class="intro">
+			<div>
+				<p class="eyebrow">DRUM LAB / 001</p>
+				<h1>Make the room<br><em>move.</em></h1>
+			</div>
+			<p class="intro-copy">Tap a pad or use your keyboard to build a beat. Every hit is shaped in real time, right in your browser.</p>
+		</section>
+
+		<section class="console" aria-label="Drum machine">
+			<div class="console-head">
+				<div>
+					<p class="section-label">LIVE KIT</p>
+					<h2>Midnight hardware</h2>
+				</div>
+				<div class="tempo-control">
+					<label for="tempo">TEMPO <output id="tempoValue">108</output> BPM</label>
+					<input id="tempo" type="range" min="70" max="160" value="108">
+				</div>
+			</div>
+
+			<div class="pads" id="pads">
+				<button class="pad kick" data-sound="kick" data-key="a" type="button"><span class="pad-key">A</span><span class="pad-name">Kick</span><span class="pad-note">LOW / 01</span></button>
+				<button class="pad snare" data-sound="snare" data-key="s" type="button"><span class="pad-key">S</span><span class="pad-name">Snare</span><span class="pad-note">CRACK / 02</span></button>
+				<button class="pad hat" data-sound="hat" data-key="d" type="button"><span class="pad-key">D</span><span class="pad-name">Closed hat</span><span class="pad-note">TICK / 03</span></button>
+				<button class="pad clap" data-sound="clap" data-key="f" type="button"><span class="pad-key">F</span><span class="pad-name">Clap</span><span class="pad-note">HAND / 04</span></button>
+				<button class="pad tom" data-sound="tom" data-key="j" type="button"><span class="pad-key">J</span><span class="pad-name">Tom</span><span class="pad-note">ROUND / 05</span></button>
+				<button class="pad ride" data-sound="ride" data-key="k" type="button"><span class="pad-key">K</span><span class="pad-name">Ride</span><span class="pad-note">SHIMMER / 06</span></button>
+				<button class="pad open-hat" data-sound="openHat" data-key="l" type="button"><span class="pad-key">L</span><span class="pad-name">Open hat</span><span class="pad-note">AIR / 07</span></button>
+				<button class="pad rim" data-sound="rim" data-key=";" type="button"><span class="pad-key">;</span><span class="pad-name">Rim</span><span class="pad-note">CLICK / 08</span></button>
+			</div>
+
+			<div class="console-foot">
+				<p><span class="key-hint">A — ;</span> keyboard mapped</p>
+				<button class="clear-button" id="clearButton" type="button"><span>×</span> Clear glow</button>
+			</div>
+		</section>
+
+		<footer><span>LISTEN CLOSELY</span><span>VOLUME 01 / 08</span><span>2026</span></footer>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>

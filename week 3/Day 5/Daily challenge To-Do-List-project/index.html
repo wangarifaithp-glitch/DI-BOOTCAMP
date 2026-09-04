@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Bloom | To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header"><div><p class="eyebrow">YOUR DAILY RHYTHM</p><h1>Task <span>Bloom</span></h1></div><div class="count"><strong id="taskCount">0</strong><small>tasks</small></div></header>
+    <section class="panel" aria-label="To-do list">
+      <form id="taskForm"><label class="sr-only" for="taskInput">Add a task</label><input id="taskInput" type="text" placeholder="What needs your attention?" autocomplete="off"><button type="submit">Submit <span aria-hidden="true">+</span></button></form>
+      <div class="listTasks"></div><p class="empty-state" id="emptyState">Your list is clear.<br><span>Add one small thing to begin.</span></p>
+    </section>
+    <footer><span>FOCUS MODE</span><span id="progressText">0% COMPLETE</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

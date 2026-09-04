@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring squares</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game-shell">
+        <section class="intro-panel" aria-labelledby="game-title">
+            <p class="eyebrow">A tiny pixel studio</p>
+            <h1 id="game-title">Coloring <span>Squares</span></h1>
+            <p class="instructions">Pick a color, then click or drag across the canvas to make your own pixel art.</p>
+
+            <div class="tool-row" aria-label="Game controls">
+                <button class="control-button" id="clear-button" type="button">Clear board</button>
+                <button class="control-button control-button--accent" id="new-puzzle-button" type="button">New puzzle</button>
+            </div>
+
+            <div class="palette-wrap">
+                <div class="section-label">
+                    <span>Palette</span>
+                    <span id="selected-color-name">Coral</span>
+                </div>
+                <div class="palette" id="palette" role="group" aria-label="Choose a color"></div>
+            </div>
+
+            <div class="legend">
+                <span class="legend-dot"></span>
+                <span><strong id="filled-count">0</strong> / 100 squares colored</span>
+            </div>
+        </section>
+
+        <section class="board-panel" aria-label="Coloring board">
+            <div class="board-heading">
+                <span class="board-kicker">Canvas 01</span>
+                <span class="board-status" id="board-status">Ready to create</span>
+            </div>
+            <div class="board" id="board" role="grid" aria-label="100 blank coloring squares"></div>
+            <p class="board-tip">Tip: hold your mouse button down and sweep across the grid.</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
