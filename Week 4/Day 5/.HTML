@@ -1,0 +1,28 @@
+<!-- ============================================================
+     index.html
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Giphy Search</title>
+</head>
+<body>
+
+    <h1>Random Gif Finder</h1>
+
+    <!-- Form used to search a gif by category -->
+    <form id="gif-form">
+        <input type="text" id="gif-input" placeholder="Enter a category (e.g. sun)" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Button to delete every gif at once -->
+    <button id="delete-all-btn">DELETE ALL</button>
+
+    <!-- Container where the gifs will be appended -->
+    <div id="gif-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

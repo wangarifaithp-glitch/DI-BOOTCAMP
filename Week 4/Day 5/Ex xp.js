@@ -1,84 +1,49 @@
-/* =============
-   EXERCISE 1 : Giphy API - Basic fetch() with .then()
-   ============================================================ */
+const apiKey = "hp3432NQI1C224cz2f36hpTrA1OYM4XM";
 
+const form = document.getElementById("search-form");
+const categoryInput = document.getElementById("category-input");
+const container = document.getElementById("gif-container");
+const deleteAllBtn = document.getElementById("delete-all-btn");
 
-const url1 = "https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
+form.addEventListener("submit", fetchGifByCategory);
 
-fetch(url1)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => console.log(data))
-    .catch(error => console.error("Error fetching data:", error));
+deleteAllBtn.addEventListener("click", () => {
+  container.innerHTML = "";
+});
 
+async function fetchGifByCategory(event) {
+  event.preventDefault();
 
-/* ============================================================
-   EXERCISE 2 : Giphy API - Search "sun", 10 results, offset 2
-    */
+  const category = categoryInput.value.trim();
+  if (!category) return;
 
+  const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(category)}&limit=1`;
 
+  try {
+    const response = await fetch(url);
 
-const apiKey = "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My";
-const url2 = `https://api.giphy.com/v1/gifs/search?q=sun&rating=g&limit=10&offset=2&api_key=${apiKey}`;
-
-fetch(url2)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => console.log(data))
-    .catch(error => console.error("Error fetching data:", error));
-
-/* ==
-   /* ============================================================
-   EXERCISE 3 : Async function - Star Wars API
-   ============================================================ */
-
-
-async function getStarship() {
-    try {
-        const response = await fetch("https://www.swapi.tech/api/starships/9/");
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const objectStarWars = await response.json();
-        console.log(objectStarWars.result);
-    } catch (error) {
-        console.error("Error fetching data:", error);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
+    const result = await response.json();
+
+    if (result.data.length === 0) {
+      alert("No GIFs found for that category!");
+      return;
+    }
+
+    const gifUrl = result.data[0].images.original.url;
+
+    const img = document.createElement("img");
+    img.src = gifUrl;
+    img.alt = category;
+    img.style.width = "200px";
+
+    container.appendChild(img);
+    categoryInput.value = "";
+
+  } catch (error) {
+    console.error("Error fetching GIF:", error);
+  }
 }
-
-getStarship();
-
-
-/* ============================================================
-   EXERCISE 4 : Analyze - resolveAfter2Seconds / asyncCall
-   ============================================================ */
-
-
-
-function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve('resolved');
-        }, 2000);
-    });
-}
-
-async function asyncCall() {
-    console.log('calling');
-    let result = await resolveAfter2Seconds();
-    console.log(result);
-}
-
-asyncCall();
-
-

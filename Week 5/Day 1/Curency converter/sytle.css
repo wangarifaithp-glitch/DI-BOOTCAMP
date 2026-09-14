@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.converter-card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #60a5fa;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e5e7eb;
+  font-size: 1rem;
+}
+
+select:focus,
+input:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+.currency-search {
+  margin-bottom: 6px;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #60a5fa;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+
+button:hover {
+  background: #93c5fd;
+  transform: scale(1.02);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+#switchBtn {
+  background: #22d3ee;
+}
+
+#switchBtn:hover {
+  background: #67e8f9;
+}
+
+/* Result area */
+.result-container {
+  margin-top: 20px;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-message,
+.error-message,
+.result-message {
+  width: 100%;
+}
+
+.loading-message i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+.error-message {
+  color: #f87171;
+  font-size: 0.95rem;
+}
+
+.result-message {
+  font-size: 1rem;
+}
+
+.result-message p {
+  margin: 6px 0;
+}
+
+.rate-text {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}

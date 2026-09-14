@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokedex</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Optional: Font Awesome for loading icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+<body>
+  <div class="pokedex">
+    <div class="pokedex-header">
+      <img src="pokedex-logo.png" alt="Pokedex Logo" class="logo" />
+    </div>
+
+    <div class="screen">
+      <div id="loadingMessage" class="loading-message" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i> Loading Pokémon...
+      </div>
+
+      <div id="errorMessage" class="error-message" style="display: none;">
+        Oh no! That Pokémon isn’t available...
+      </div>
+
+      <div id="pokemonDisplay" class="pokemon-display">
+        <img id="pokemonImage" src="" alt="Pokémon Image" class="pokemon-image" />
+        <h2 id="pokemonName" class="pokemon-name"></h2>
+        <p id="pokemonId" class="pokemon-id"></p>
+        <div class="pokemon-stats">
+          <p><strong>Height:</strong> <span id="pokemonHeight"></span></p>
+          <p><strong>Weight:</strong> <span id="pokemonWeight"></span></p>
+          <p><strong>Type:</strong> <span id="pokemonType"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn" class="control-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button id="randomBtn" class="control-btn random">
+        Random Pokémon
+      </button>
+
+      <button id="nextBtn" class="control-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
