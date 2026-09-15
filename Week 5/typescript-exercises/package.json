@@ -1,0 +1,21 @@
+{
+  "name": "typescript-exercises",
+  "version": "1.0.0",
+  "description": "A project for learning TypeScript concepts through exercises.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "typescript",
+    "learning",
+    "exercises"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.0.0"
+  }
+}
