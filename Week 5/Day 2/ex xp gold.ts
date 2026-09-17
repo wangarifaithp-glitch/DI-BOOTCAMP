@@ -35,7 +35,6 @@ console.log(sumNumbersInArray(["one", "two"]));           // 0
 
 
 // ===========================
-// Exercise 3: Type Aliases
 // ===========================
 
 type AdvancedUser = {
