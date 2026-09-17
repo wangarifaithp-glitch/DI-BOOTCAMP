@@ -1,12 +1,7 @@
-// ===========================
-// Exercise 1: Hello, World!
-// ===========================
+
 console.log("=== Exercise 1 ===");
 console.log("Hello, World!");
 
-// ===========================
-// Exercise 2: Type Annotations
-// ===========================
 console.log("\n=== Exercise 2 ===");
 const age: number = 30;
 const nameStr: string = "Peris";
