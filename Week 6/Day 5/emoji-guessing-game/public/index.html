@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Face-Off</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-panel">
+        <p class="eyebrow">Emoji Face-Off</p>
+        <h1>What does this emoji mean?</h1>
+        <div class="score-row">
+          <label for="player-name">Player</label>
+          <input id="player-name" maxlength="20" value="Player" autocomplete="name">
+          <strong>Score <span id="score">0</span></strong>
+        </div>
+
+        <div class="question-card">
+          <div id="emoji" class="emoji" aria-live="polite">?</div>
+          <form id="guess-form">
+            <fieldset>
+              <legend>Choose the answer</legend>
+              <div id="options" class="options"></div>
+            </fieldset>
+            <button type="submit" id="submit-button">Lock in answer</button>
+          </form>
+          <p id="feedback" class="feedback" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <aside class="leaderboard-panel">
+        <p class="eyebrow">Top players</p>
+        <h2>Leaderboard</h2>
+        <ol id="leaderboard"></ol>
+      </aside>
+    </main>
+    <script src="/game.js"></script>
+  </body>
+</html>

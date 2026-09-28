@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quickfire Quiz</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main class="quiz-shell">
+      <header class="quiz-header">
+        <p class="eyebrow">Express Node.js quiz</p>
+        <h1>Quickfire</h1>
+        <p>Five questions. One clean run. See how much you know.</p>
+      </header>
+
+      <section id="start-screen" class="panel start-screen">
+        <div class="start-mark">?</div>
+        <h2>Ready when you are.</h2>
+        <p>The answer key stays on the server, and feedback appears after every choice.</p>
+        <button id="start-button" type="button">Start quiz</button>
+      </section>
+
+      <section id="quiz-screen" class="panel" hidden>
+        <div class="quiz-meta">
+          <span id="progress">Question 1 of 5</span>
+          <strong>Score <span id="score">0</span></strong>
+        </div>
+        <div class="progress-track"><span id="progress-bar"></span></div>
+        <h2 id="question"></h2>
+        <form id="answer-form">
+          <div id="choices" class="choices"></div>
+          <button id="submit-button" type="submit">Submit answer</button>
+        </form>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section id="result-screen" class="panel result-screen" hidden>
+        <p class="eyebrow">Quiz complete</p>
+        <h2>Your final score</h2>
+        <div id="final-score" class="final-score">0/5</div>
+        <p id="result-message"></p>
+        <button id="restart-button" type="button">Play again</button>
+      </section>
+    </main>
+    <script src="/quiz.js"></script>
+  </body>
+</html>
