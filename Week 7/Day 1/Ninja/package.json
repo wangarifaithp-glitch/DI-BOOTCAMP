@@ -1,0 +1,11 @@
+{
+  "name": "emoji-greeting-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node \"xp ninja.js\""
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "trivia-quiz-game",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node \"Trivia Quiz Game.js\""
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.18.2"
+  }
+}

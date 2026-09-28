@@ -1,0 +1,11 @@
+{
+  "name": "week-7-day-1-blog-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node \"xp Gold.js\""
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
