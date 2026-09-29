@@ -17,7 +17,7 @@ async function runAllExercises() {
   function findProduct(productName) {
     const product = products.find(p => p.name.toLowerCase() === productName.toLowerCase());
     if (product) {
-      console.log(Found: ${product.name} | Category: ${product.category} | Price: $${product.price});
+      console.log(`Found: ${product.name} | Category: ${product.category} | Price: $${product.price}`);
     } else {
       console.log(Product "${productName}" not found.);
     }
