@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5ef">
+  <title>Commonroom · Live chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Commonroom home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>commonroom</span>
+      </a>
+      <div class="topbar-center"><span class="live-dot"></span><span id="connection-label">Connecting</span></div>
+      <button class="icon-button notify-toggle" id="notify-toggle" type="button" title="Enable desktop notifications" aria-label="Enable desktop notifications">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+      </button>
+    </header>
+
+    <div class="workspace">
+      <aside class="rooms-panel" aria-label="Chat rooms">
+        <div class="workspace-label"><span class="workspace-symbol">C</span><div><strong>Creative studio</strong><small>Free workspace</small></div><button class="dots-button" aria-label="Workspace options" title="Workspace options">···</button></div>
+        <div class="side-section">
+          <div class="section-heading"><span>CHANNELS</span><span class="section-rule"></span></div>
+          <nav id="room-list" class="room-list" aria-label="Channels">
+            <button class="room-button active" data-room="general"><span class="hash">#</span><span>general</span><span class="room-unread" hidden></span></button>
+            <button class="room-button" data-room="design"><span class="hash">#</span><span>design</span><span class="room-unread" hidden></span></button>
+            <button class="room-button" data-room="development"><span class="hash">#</span><span>development</span><span class="room-unread" hidden></span></button>
+            <button class="room-button" data-room="random"><span class="hash">#</span><span>random</span><span class="room-unread" hidden></span></button>
+          </nav>
+          <form id="custom-room-form" class="custom-room-form">
+            <label for="custom-room">Join a room</label>
+            <div><span>#</span><input id="custom-room" name="room" maxlength="32" placeholder="room-name" autocomplete="off"><button type="submit" aria-label="Join room" title="Join room">↗</button></div>
+          </form>
+        </div>
+        <div class="sidebar-bottom"><span class="privacy-mark">✳</span><p>Good conversations<br>start with a hello.</p></div>
+      </aside>
+
+      <main class="chat-panel">
+        <div class="channel-header">
+          <div class="channel-title-wrap"><span class="channel-hash">#</span><div><h1 id="room-title">general</h1><p id="room-subtitle">A place for the whole team</p></div></div>
+          <div class="channel-header-actions"><button class="member-count" id="member-count" title="Active members"><span class="people-icon" aria-hidden="true">♧</span><span id="member-count-value">0</span></button><button class="mobile-members" id="mobile-members" aria-label="Show active members" title="Active members">♧</button><button class="leave-button" id="leave-room" type="button" title="Leave this room"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Leave</span></button></div>
+        </div>
+        <div class="message-area" id="message-area" aria-live="polite" aria-relevant="additions">
+          <div class="welcome-note" id="welcome-note"><span class="welcome-spark">✳</span><div><strong>Welcome to <span id="welcome-room">#general</span></strong><p>This is the beginning of something good.</p></div></div>
+          <div class="messages" id="messages"></div>
+        </div>
+        <div class="composer-wrap">
+          <div class="composer-hint" id="composer-hint">Choose a username to join the conversation</div>
+          <form id="message-form" class="composer">
+            <button class="composer-tool" type="button" id="emoji-button" aria-label="Add a wave emoji" title="Add a wave emoji">☺</button>
+            <input id="message-input" type="text" placeholder="Write a message..." maxlength="1000" autocomplete="off" disabled aria-label="Message">
+            <span class="input-divider"></span>
+            <button class="send-button" type="submit" aria-label="Send message" title="Send message" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-7.4 18-3.8-7.8L2 9.4 21 3Zm0 0L9.8 13.2"/></svg></button>
+          </form>
+          <div class="composer-foot"><span><kbd>Enter</kbd> to send</span><span id="character-count">0 / 1000</span></div>
+        </div>
+      </main>
+
+      <aside class="members-panel" id="members-panel" aria-label="Room members">
+        <div class="members-heading"><div><span class="eyebrow">IN THIS ROOM</span><h2>People <span id="people-count">0</span></h2></div><button class="mobile-close" id="mobile-close" aria-label="Close active members">×</button></div>
+        <div class="member-status"><span class="live-dot"></span><span id="online-label">0 people online</span></div>
+        <div class="member-list" id="member-list"><p class="empty-members">Join the room to see who’s here.</p></div>
+        <div class="you-card" id="you-card" hidden><div class="avatar avatar-you" id="you-avatar">?</div><div class="you-details"><strong id="you-name">You</strong><span>That’s you</span></div><span class="you-dot"></span></div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="join-backdrop" id="join-backdrop">
+    <section class="join-dialog" role="dialog" aria-modal="true" aria-labelledby="join-title">
+      <span class="dialog-icon">✳</span>
+      <p class="eyebrow">CREATIVE STUDIO</p>
+      <h2 id="join-title">Pull up a chair.</h2>
+      <p class="dialog-copy">Pick a name and find your people in the room.</p>
+      <form id="join-form">
+        <label for="username-input">Your name</label>
+        <input id="username-input" name="username" maxlength="24" placeholder="e.g. Sam Rivera" autocomplete="nickname" required>
+        <label for="room-select">Start in</label>
+        <select id="room-select" name="room">
+          <option value="general"># general</option>
+          <option value="design"># design</option>
+          <option value="development"># development</option>
+          <option value="random"># random</option>
+        </select>
+        <p class="join-error" id="join-error" role="alert"></p>
+        <button class="join-button" id="join-button" type="submit" disabled>Join conversation <span>↗</span></button>
+      </form>
+      <p class="dialog-foot">No account needed. Just be kind.</p>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "terminal-notes-app",
+  "version": "1.0.0",
+  "private": true,
+  "main": "note app.js",
+  "scripts": {
+    "start": "node \"note app.js\""
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "yargs": "^17.7.2"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "user-management-api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "task api.js",
+  "scripts": {
+    "start": "node \"task api.js\"",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1"
+  }
+}

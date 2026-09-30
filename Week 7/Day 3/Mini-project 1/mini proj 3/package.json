@@ -1,0 +1,14 @@
+{
+  "name": "outpost-strategy-game",
+  "version": "1.0.0",
+  "private": true,
+  "main": "multiplier strategy.js",
+  "scripts": {
+    "start": "node \"multiplier strategy.js\"",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1"
+  }
+}

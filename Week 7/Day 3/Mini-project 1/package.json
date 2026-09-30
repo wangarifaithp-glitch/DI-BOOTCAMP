@@ -1,0 +1,12 @@
+{
+  "name": "task-management-api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "task manager api.js",
+  "scripts": {
+    "start": "node \"task manager api.js\""
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
