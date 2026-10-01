@@ -1,0 +1,59 @@
+.para {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.tag-exercise h1 {
+  margin: 24px 0 16px;
+  font-size: 28px;
+}
+
+.tag-exercise > a {
+  color: #1767a5;
+}
+
+.sample-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.sample-form input {
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid #b7c3cb;
+  border-radius: 3px;
+  font: inherit;
+}
+
+.sample-form button {
+  min-height: 38px;
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 3px;
+  background: #166c62;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.landscape-image {
+  display: block;
+  width: min(100%, 640px);
+  aspect-ratio: 16 / 9;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 20px 0 0;
+  padding-left: 20px;
+}
