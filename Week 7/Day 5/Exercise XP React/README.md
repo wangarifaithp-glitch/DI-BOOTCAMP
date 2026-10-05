@@ -1,6 +1,6 @@
-# Week 7 Day 5: React Exercises XP
+# React Exercises XP
 
-Four small React exercises covering components and props, event handlers, `useState`, and `useEffect`.
+One shared React app covering components and props, event handlers, state, forms, validation, timers, class component lifecycles, unmounting, and error boundaries.
 
 ## Run
 
@@ -9,4 +9,6 @@ npm install
 npm start
 ```
 
-Open the local URL printed by Vite. The Color exercise displays its required `useEffect reached` alert once when the app loads.
+Open the local URL printed by Vite. The lifecycle exercise changes the favorite color from red to yellow after mounting and logs update lifecycle calls to the console. Its **Delete** button unmounts the child and displays an alert.
+
+The error-boundary exercise has three counter simulations. The first two are caught by error boundaries; the third intentionally throws an uncaught error and unmounts the app. Refresh the page after trying the third simulation.

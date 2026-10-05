@@ -89,7 +89,19 @@ h2 { margin-bottom: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px
 .result-line strong { color: var(--green); }
 .color-red { color: #c94336 !important; }
 .color-blue { color: #285b93 !important; }
+.color-yellow { color: #a87800 !important; }
 .control-row { display: flex; flex-wrap: wrap; gap: 9px; }
+.exercise-note { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.simulation { display: grid; gap: 10px; padding: 13px; border: 1px solid var(--line); background: var(--paper); }
+.simulation h3 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 14px; }
+.counter-button { min-height: 39px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 3px; background: white; color: var(--ink); cursor: pointer; font-weight: 700; }
+.counter-button:hover { border-color: var(--green); }
+.counter-button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.error-fallback { max-height: 220px; overflow: auto; padding: 12px; border-left: 3px solid var(--coral); background: #f9e9e4; color: #672b20; font-size: 12px; }
+.error-fallback h3 { margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; }
+.error-fallback details { overflow-wrap: anywhere; }
+.child-message { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; }
+.button:disabled { cursor: not-allowed; opacity: 0.55; }
 
 .button {
   min-height: 39px;
