@@ -1,5 +1,14 @@
 import { Component } from 'react'
 
+const initialFormData = {
+  firstName: '',
+  lastName: '',
+  age: '',
+  gender: '',
+  destination: '',
+  lactoseFree: false,
+}
+
 class FormComponent extends Component {
   render() {
     const { formData, handleChange } = this.props
@@ -88,7 +97,7 @@ class FormComponent extends Component {
               type="checkbox"
               name="lactoseFree"
               value="on"
-              checked={formData.lactoseFree === 'on'}
+              checked={formData.lactoseFree}
               onChange={handleChange}
             />
             Lactose free
@@ -103,27 +112,23 @@ class FormComponent extends Component {
         <p>Age: {formData.age}</p>
         <p>Gender: {formData.gender}</p>
         <p>Destination: {formData.destination}</p>
-        <p>Lactose free: {formData.lactoseFree === 'on' ? 'Yes' : 'No'}</p>
+        <p>Lactose free: {formData.lactoseFree ? 'Yes' : 'No'}</p>
       </section>
     )
   }
 }
 
 class App extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    age: '',
-    gender: '',
-    destination: '',
-    lactoseFree: '',
-  }
+  state = { ...initialFormData }
 
   handleChange = (event) => {
     const { name, type, value, checked } = event.target
-    const fieldValue = type === 'checkbox' ? (checked ? value : '') : value
+    const fieldValue = type === 'checkbox' ? checked : value
 
-    this.setState({ [name]: fieldValue })
+    this.setState((currentState) => ({
+      ...currentState,
+      [name]: fieldValue,
+    }))
   }
 
   render() {
