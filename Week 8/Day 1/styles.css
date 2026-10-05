@@ -69,6 +69,34 @@ h1 span {
 h2 { margin-bottom: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px; }
 .exercise-body { display: flex; align-items: center; min-width: 0; }
 .component-stack { display: grid; gap: 13px; width: 100%; }
+.component-stack form { display: grid; gap: 12px; width: 100%; }
+.component-stack form > div { display: grid; gap: 6px; }
+.component-stack form label { color: var(--ink); font-size: 13px; }
+.component-stack form input:not([type='checkbox']):not([type='radio']),
+.component-stack form select {
+  width: 100%;
+  min-height: 39px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.component-stack form fieldset { display: flex; flex-wrap: wrap; gap: 12px; border: 1px solid var(--line); }
+.component-stack form fieldset label,
+.component-stack form > label { display: flex; align-items: center; gap: 7px; }
+.component-stack form button {
+  justify-self: start;
+  min-height: 39px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--ink);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
 .result-line { margin: 0; line-height: 1.55; }
 .result-line strong { color: var(--green); }
 .color-red { color: #c94336 !important; }

@@ -1,6 +1,6 @@
 # Week 8 Day 1: React Exercises
 
-This folder contains the travel form daily challenge and the React XP exercises for error boundaries, updating lifecycle methods, and unmounting.
+This folder contains the travel form in `DailyChallenge.jsx` and the React XP exercises for error boundaries, updating lifecycle methods, and unmounting.
 
 ## Run the React XP app
 

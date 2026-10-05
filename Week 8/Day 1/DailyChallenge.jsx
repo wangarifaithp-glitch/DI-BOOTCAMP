@@ -118,7 +118,7 @@ class FormComponent extends Component {
   }
 }
 
-class App extends Component {
+class TravelForm extends Component {
   state = { ...initialFormData }
 
   handleChange = (event) => {
@@ -133,12 +133,11 @@ class App extends Component {
 
   render() {
     return (
-      <main>
-        <h1>Travel form</h1>
+      <div className="component-stack">
         <FormComponent formData={this.state} handleChange={this.handleChange} />
-      </main>
+      </div>
     )
   }
 }
 
-export default App
+export default TravelForm
