@@ -1,0 +1,114 @@
+:root {
+  font-family: 'Segoe UI', sans-serif;
+  color: #22241f;
+  background: #f4f1e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #22241f;
+  --muted: #77796f;
+  --line: #dedbcf;
+  --paper: #fbfaf6;
+  --green: #285b48;
+  --coral: #db6246;
+  --yellow: #e5bc50;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-image: radial-gradient(#d7d2c4 0.7px, transparent 0.7px);
+  background-size: 17px 17px;
+}
+
+button, input { font: inherit; }
+
+.page-shell {
+  width: min(100% - 40px, 650px);
+  margin: 0 auto;
+  padding: 14vh 0 28px;
+}
+
+.page-heading { margin-bottom: 32px; }
+.eyebrow, .page-footer {
+  font-family: 'Cascadia Code', Consolas, monospace;
+  text-transform: uppercase;
+}
+.eyebrow { margin: 0 0 13px; color: var(--green); font-size: 12px; }
+h1 {
+  margin: 0 0 9px;
+  font-size: clamp(36px, 7vw, 56px);
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+h1 span { color: var(--coral); }
+.intro { margin: 0; color: var(--muted); font-size: 16px; }
+
+.search-card {
+  padding: clamp(20px, 5vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 18px 55px rgb(34 36 31 / 8%);
+}
+.search-card > label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 700; }
+.search-control { position: relative; }
+.search-control input {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 46px 12px 14px;
+  border: 1px solid #b9b8ad;
+  border-radius: 5px;
+  background: white;
+  color: var(--ink);
+  font-size: 16px;
+}
+.search-control input:focus-visible {
+  border-color: var(--green);
+  outline: 3px solid rgb(40 91 72 / 18%);
+}
+.search-control input::placeholder { color: #99998f; }
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  color: var(--green);
+  font-size: 28px;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateY(-56%);
+}
+.suggestions {
+  max-height: min(42vh, 320px);
+  margin: 8px 0 0;
+  padding: 5px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+  list-style: none;
+}
+.suggestions button {
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.suggestions button:hover, .suggestions button:focus-visible {
+  outline: none;
+  background: #edf2ed;
+  color: var(--green);
+}
+.search-hint { min-height: 20px; margin: 12px 0 0; color: var(--muted); font-size: 12px; }
+.page-footer { padding-top: 22px; color: var(--muted); font-size: 10px; }
+.page-footer span { padding: 0 5px; color: var(--coral); }
+
+@media (max-width: 480px) {
+  .page-shell { width: min(100% - 32px, 420px); padding-top: 10vh; }
+}
