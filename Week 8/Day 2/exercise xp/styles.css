@@ -1,0 +1,103 @@
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f4f1e8;
+  color: #22241f;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.page-content {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 960px;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.route-card,
+.content-card {
+  padding: 1.5rem;
+  border: 1px solid #dedbcf;
+  border-radius: 0.375rem;
+  background: #fffefa;
+}
+
+.route-card h1,
+.content-card h2 {
+  margin-bottom: 1rem;
+}
+
+.post-list,
+.api-post-list,
+.example-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.post,
+.api-post,
+.experience {
+  padding: 1rem 0;
+  border-bottom: 1px solid #dedbcf;
+}
+
+.post:last-child,
+.api-post:last-child,
+.experience:last-child {
+  border-bottom: 0;
+}
+
+.post h3,
+.api-post h3,
+.example-grid h3 {
+  font-size: 1.15rem;
+}
+
+.post p,
+.api-post p,
+.experience p {
+  margin-bottom: 0.4rem;
+}
+
+.api-user-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.api-user-list li {
+  display: grid;
+  gap: 0.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dedbcf;
+}
+
+.api-user-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.example-grid section {
+  min-width: 0;
+}
+
+.experience-role {
+  padding-left: 1rem;
+  border-left: 2px solid #dedbcf;
+}
+
+@media (min-width: 768px) {
+  .example-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .example-grid section:last-child {
+    grid-column: 1 / -1;
+  }
+}

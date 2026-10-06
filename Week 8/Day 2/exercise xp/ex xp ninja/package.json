@@ -1,0 +1,13 @@
+{
+  "name": "week-8-day-2-express-exercises",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "users-api": "node exercise-1/server.js",
+    "customers-api": "node exercise-2/server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
