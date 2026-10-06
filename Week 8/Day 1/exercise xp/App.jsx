@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import ErrorBoundary from './ErrorBoundary.jsx'
-import TravelForm from './DailyChallenge.jsx'
 
 class BuggyCounter extends Component {
   state = { counter: 0 }
@@ -172,18 +171,6 @@ class App extends Component {
             </div>
           </section>
 
-          <section className="exercise" aria-labelledby="travel-form-heading">
-            <div className="exercise-heading">
-              <span className="exercise-number">04</span>
-              <div>
-                <p className="exercise-kicker">Controlled inputs</p>
-                <h2 id="travel-form-heading">Travel form challenge</h2>
-              </div>
-            </div>
-            <div className="exercise-body">
-              <TravelForm />
-            </div>
-          </section>
         </div>
         <footer className="page-footer">React class components <span>·</span> Week 8 Day 1</footer>
       </main>

@@ -1,14 +1,8 @@
-# Week 8 Day 1: React Exercises
+# Week 8 Day 1
 
-This folder contains the travel form in `DailyChallenge.jsx` and the React XP exercises for error boundaries, updating lifecycle methods, and unmounting.
+The exercise XP and Daily Challenge 1 are separate React apps:
 
-## Run the React XP app
+- [Exercise XP](./exercise%20xp/README.md): error boundaries and class component lifecycle exercises.
+- [Daily Challenge 1](./Daily%20challenge/README.md): the controlled travel form.
 
-```sh
-npm install
-npm run dev
-```
-
-Open the local URL printed by Vite. The three error-boundary simulations demonstrate shared, isolated, and missing boundaries. The favorite color starts red, changes to yellow after mounting, and can be changed to blue. Check the browser console for lifecycle logs. The **Delete** button unmounts the child and displays an alert.
-
-The intentionally unprotected counter in Simulation 3 crashes the app after five clicks; refresh the page to reset it.
+Install dependencies and start each app from its own folder so their files and dependencies stay separate.
