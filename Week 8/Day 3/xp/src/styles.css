@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  background: #f4f6fb;
+  color: #20263a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  --surface: #ffffff;
+  --text: #20263a;
+  --muted: #69738a;
+  --border: #e4e8f0;
+  --accent: #5b5ce2;
+  --accent-hover: #4849c7;
+  min-height: 100vh;
+  padding: 72px 24px 32px;
+  background: #f4f6fb;
+  color: var(--text);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.page-shell[data-theme='dark'] {
+  --surface: #202538;
+  --text: #f2f4fb;
+  --muted: #b1b8ca;
+  --border: #373e54;
+  --accent: #9697ff;
+  --accent-hover: #b0b1ff;
+  background: #151927;
+}
+
+.page-header,
+.exercise-list,
+.page-footer {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.page-header {
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(2.1rem, 7vw, 3.4rem);
+  letter-spacing: -0.055em;
+}
+
+.page-header > p:last-child {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.exercise-list {
+  display: grid;
+  gap: 20px;
+}
+
+.exercise-card {
+  padding: clamp(22px, 5vw, 32px);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgb(27 39 74 / 5%);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.exercise-number {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.card-heading .eyebrow {
+  margin-bottom: 3px;
+  font-size: 0.66rem;
+}
+
+.card-heading h2 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.035em;
+}
+
+.card-description {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card-description strong,
+.character-count strong {
+  color: var(--text);
+}
+
+.action-button {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.action-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.action-button:focus-visible,
+.message-input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  outline-offset: 3px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.message-input {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 13px 14px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.message-input::placeholder {
+  color: var(--muted);
+}
+
+.character-count {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.page-footer {
+  margin-top: 34px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.page-footer span {
+  margin-inline: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
