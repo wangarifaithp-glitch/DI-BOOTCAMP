@@ -1,3 +1,0 @@
-f = open("Pesh.txt", "r")
-
-print(f.read())
