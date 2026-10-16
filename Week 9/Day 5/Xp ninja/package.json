@@ -1,0 +1,20 @@
+{
+  "name": "todo-list-filters",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-redux": "^9.2.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.12"
+  }
+}
