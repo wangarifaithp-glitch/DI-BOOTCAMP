@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta name="description" content="A local learning demo for JWT authentication with Express." />
+    <title>Key &amp; Cookie — JWT Learning Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Key and Cookie home">
+          <span class="brand-mark" aria-hidden="true">K</span>
+          <span>key <i>&</i> cookie</span>
+        </a>
+        <span class="demo-tag"><span></span> LOCAL AUTH LEARNING LAB</span>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">NODE.JS · EXPRESS · JWT</p>
+          <h1>Identity,<br /><em>beautifully</em> handled.</h1>
+          <p>A hands-on authentication demo: create an account, get secure cookies, and explore protected routes.</p>
+          <div class="hero-chips">
+            <span>HTTP-only cookies</span>
+            <span>Refresh token rotation</span>
+            <span>Protected profile</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit--one"></div>
+          <div class="orbit orbit--two"></div>
+          <div class="lock-illustration">
+            <div class="lock-shackle"></div>
+            <div class="lock-body"><span class="lock-keyhole"></span></div>
+          </div>
+          <span class="spark spark--one">✳</span>
+          <span class="spark spark--two">✦</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Authentication demo">
+        <div class="auth-card" id="authPanel">
+          <div class="card-heading">
+            <p class="eyebrow">YOUR PRIVATE SPACE</p>
+            <h2 id="authHeading">Welcome back</h2>
+            <p id="authDescription">Sign in to access your protected profile.</p>
+          </div>
+
+          <div class="mode-switch" role="group" aria-label="Choose authentication mode">
+            <button class="mode-button mode-button--active" id="loginMode" type="button" aria-pressed="true">Sign in</button>
+            <button class="mode-button" id="registerMode" type="button" aria-pressed="false">Create account</button>
+          </div>
+
+          <form id="authForm" novalidate>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username" minlength="3" maxlength="24" placeholder="e.g. alex_reader" required />
+            <label for="password">Password <span id="passwordHint">at least 12 characters</span></label>
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="128" placeholder="Enter your password" required />
+            <p class="message" id="authMessage" role="alert" hidden></p>
+            <button class="primary-button" id="submitButton" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+          </form>
+
+          <p class="security-note"><span aria-hidden="true">◈</span> Passwords are hashed. Tokens stay in HTTP-only cookies.</p>
+        </div>
+
+        <section class="profile-card" id="profilePanel" hidden aria-labelledby="profileHeading">
+          <div class="profile-top">
+            <div class="avatar" id="avatar">?</div>
+            <div>
+              <p class="eyebrow">AUTHENTICATED SESSION</p>
+              <h2 id="profileHeading">Your profile</h2>
+            </div>
+            <button class="quiet-button" id="logoutButton" type="button">Sign out</button>
+          </div>
+          <div class="session-banner"><span class="session-dot"></span><span>You're signed in. This is a protected view.</span></div>
+          <div class="profile-details">
+            <div><span class="detail-label">USERNAME</span><strong id="currentUsername"></strong></div>
+            <div><span class="detail-label">ACCESS</span><strong>Verified</strong></div>
+            <div><span class="detail-label">TOKEN STORAGE</span><strong>HTTP-only cookies</strong></div>
+          </div>
+          <form id="profileForm" class="profile-form">
+            <label for="newUsername">Update username</label>
+            <div class="inline-form">
+              <input id="newUsername" type="text" minlength="3" maxlength="24" placeholder="New username" required />
+              <button class="secondary-button" type="submit">Save</button>
+            </div>
+            <p class="message" id="profileMessage" role="alert" hidden></p>
+          </form>
+          <div class="protected-note"><span>✓</span><p><strong>Protected route</strong><br />This profile data came from <code>GET /api/auth/me</code>, guarded by JWT middleware.</p></div>
+        </section>
+
+        <aside class="flow-card">
+          <p class="eyebrow">THE AUTH FLOW</p>
+          <h2>Security in a few steps.</h2>
+          <ol class="flow-list">
+            <li><span class="step-number">01</span><span><strong>Password hashing</strong><small>bcrypt stores no plain-text password.</small></span></li>
+            <li><span class="step-number">02</span><span><strong>Signed access token</strong><small>Short-lived JWT guards your profile.</small></span></li>
+            <li><span class="step-number">03</span><span><strong>Refresh &amp; rotate</strong><small>Refresh token rotates and can be revoked.</small></span></li>
+          </ol>
+          <div class="demo-warning"><span aria-hidden="true">ⓘ</span><p>Learning demo only. Accounts and token records live in memory and reset when the server stops.</p></div>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <span>Built for learning, run locally.</span><span aria-hidden="true">✳</span><span>Never use demo secrets in production.</span>
+      </footer>
+    </main>
+  </body>
+</html>
