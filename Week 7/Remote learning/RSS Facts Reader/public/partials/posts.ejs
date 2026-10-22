@@ -1,0 +1,30 @@
+<% if (posts.length === 0) { %>
+  <p class="text-secondary"><%= emptyMessage || 'No matching facts found.' %></p>
+<% } else { %>
+  <div class="row g-3">
+    <% posts.forEach((post) => { %>
+      <div class="col-12">
+        <article class="card fact-card shadow-sm">
+          <div class="card-body">
+            <h2 class="h4 card-title">
+              <a href="<%= post.link %>" target="_blank" rel="noopener noreferrer"><%= post.title %></a>
+            </h2>
+            <p class="small text-secondary mb-2">
+              <span><%= post.pubDate ? new Date(post.pubDate).toLocaleDateString() : 'Date unavailable' %></span>
+              <span class="mx-1">|</span>
+              <span>By <%= post.creator %></span>
+            </p>
+            <% if (post.categories.length > 0) { %>
+              <div class="mb-2">
+                <% post.categories.forEach((category) => { %>
+                  <span class="badge category-badge me-1"><%= category %></span>
+                <% }) %>
+              </div>
+            <% } %>
+            <p class="card-text mb-0"><%= post.content %></p>
+          </div>
+        </article>
+      </div>
+    <% }) %>
+  </div>
+<% } %>

@@ -1,0 +1,50 @@
+<%- include('../partials/head', { title: 'Fact Feed | Search' }) %>
+<%- include('../partials/header') %>
+
+<main class="container py-5">
+  <header class="mb-4">
+    <p class="text-uppercase small text-primary fw-bold mb-2">Find a fact</p>
+    <h1 class="display-6 fw-bold">Search the feed</h1>
+  </header>
+
+  <div class="row g-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <form action="/search/title" method="post" class="card card-body shadow-sm h-100">
+        <label for="title" class="form-label fw-semibold">Search by title</label>
+        <div class="input-group">
+          <input id="title" name="title" class="form-control" type="search" value="<%= selectedTitle %>" placeholder="Enter a word or title">
+          <button class="btn btn-primary" type="submit">Search title</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-lg-6">
+      <form action="/search/category" method="post" class="card card-body shadow-sm h-100">
+        <label for="category" class="form-label fw-semibold">Search by category</label>
+        <div class="input-group">
+          <select id="category" name="category" class="form-select">
+            <option value="">Choose a category</option>
+            <% categories.forEach((category) => { %>
+              <option value="<%= category %>" <%= selectedCategory === category ? 'selected' : '' %>><%= category %></option>
+            <% }) %>
+          </select>
+          <button class="btn btn-primary" type="submit">Search category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <% if (notice) { %>
+    <p class="alert alert-info" role="status"><%= notice %></p>
+  <% } %>
+
+  <section aria-label="Search results">
+    <%- include('../partials/posts', {
+      posts,
+      emptyMessage: notice || (selectedTitle || selectedCategory
+        ? 'No matching facts found. Try another search.'
+        : 'Use either form above to find facts.')
+    }) %>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

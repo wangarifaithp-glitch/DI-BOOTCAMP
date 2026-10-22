@@ -1,0 +1,16 @@
+<%- include('../partials/head', { title: 'Fact Feed | All Facts' }) %>
+<%- include('../partials/header') %>
+
+<header class="page-header py-5 mb-4">
+  <div class="container">
+    <p class="text-uppercase small mb-2">The Fact File RSS feed</p>
+    <h1 class="display-5 fw-bold">A little fact for your day</h1>
+    <p class="lead mb-0">Browse the latest posts from the feed.</p>
+  </div>
+</header>
+
+<main class="container pb-4">
+  <%- include('../partials/posts', { posts, emptyMessage: 'There are no posts in the feed yet.' }) %>
+</main>
+
+<%- include('../partials/footer') %>
